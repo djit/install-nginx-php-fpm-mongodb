@@ -24,7 +24,9 @@ echo "extension=http.so" >> /etc/php5/fpm/php.ini
 mkdir /var/run/php5-fpm
 
 # create webroot dir
-mkdir /var/www/default.local
+sudo mkdir /var/www/default.local
+touch /var/www/default.local/index.php
+echo "<?php\n\n phpinfo()" >> /var/www/default.local/index.php
 
 # remove default nginx server conf
 cd /etc/nginx/sites-enabled
@@ -37,4 +39,4 @@ service nginx restart
 # download default pool conf
 wget https://raw.github.com/djit/install-nginx-php-fpm-mongodb/master/default.local.pool
 mv default.local.pool /etc/php5/fpm/pool.d/default.local.conf
-service  php5-fpm restart
+service php5-fpm restart
