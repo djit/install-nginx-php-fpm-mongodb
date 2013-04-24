@@ -26,7 +26,7 @@ mkdir /var/run/php5-fpm
 # create webroot dir
 sudo mkdir -p /var/www/default.local
 touch /var/www/default.local/index.php
-echo "<?php\n\n phpinfo()" >> /var/www/default.local/index.php
+echo "<?php phpinfo();" >> /var/www/default.local/index.php
 
 # remove default nginx server conf
 cd /etc/nginx/sites-enabled
