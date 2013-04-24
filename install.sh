@@ -20,6 +20,20 @@ pecl install mongo
 echo "extension=mongo.so" >> /etc/php5/fpm/php.ini
 echo "extension=http.so" >> /etc/php5/fpm/php.ini
 
+# create socket dir for php-fpm pool
+mkdir /var/run/php5-fpm
+
+# create webroot dir
+mkdir /var/www/default.local
+
 # remove default nginx server conf
-rm /etc/nginx/sites-enabled/default
+cd /etc/nginx/sites-enabled
+rm default
+
+# download default website conf
+wget https://raw.github.com/djit/install-nginx-php-fpm-mongodb/master/default.local.conf
 service nginx restart
+
+# download default pool conf
+wget https://raw.github.com/djit/install-nginx-php-fpm-mongodb/master/default.local.pool
+service nginx php5-fpm restart
