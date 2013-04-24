@@ -24,7 +24,7 @@ echo "extension=http.so" >> /etc/php5/fpm/php.ini
 mkdir /var/run/php5-fpm
 
 # create webroot dir
-sudo mkdir /var/www/default.local
+sudo mkdir -p /var/www/default.local
 touch /var/www/default.local/index.php
 echo "<?php\n\n phpinfo()" >> /var/www/default.local/index.php
 
