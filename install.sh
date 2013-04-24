@@ -36,4 +36,5 @@ service nginx restart
 
 # download default pool conf
 wget https://raw.github.com/djit/install-nginx-php-fpm-mongodb/master/default.local.pool
-service nginx php5-fpm restart
+mv default.local.pool /etc/php5/fpm/pool.d/default.local.conf
+service  php5-fpm restart
