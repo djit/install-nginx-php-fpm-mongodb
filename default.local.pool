@@ -1,6 +1,7 @@
 [default.local]
 
-listen = /var/run/php5-fpm/default.local.socket
+; listen = /var/run/php5-fpm/default.local.socket
+listen = 127.0.0.1:9000
 listen.backlog = -1
 
 ; Unix user/group of processes
